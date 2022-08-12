@@ -1,0 +1,108 @@
+.App {
+  text-align: center;
+}
+
+article {
+  margin-top: 10px;
+  margin-left: 4rem;
+  text-align: left;
+}
+
+article input {
+  margin-bottom: 10px;
+}
+
+.todoInput {
+  width: 310px;
+  margin-right: 5px;
+  border: none;
+  border-bottom: 1px solid rgb(10, 185, 129);
+}
+
+/* Template.js */
+
+p {
+  font-size: 13px;
+}
+
+.todolistTemplate {
+  width: 512px;
+  margin: auto;
+  margin-top: 4rem;
+  border: 1px solid rgb(10, 185, 129);
+}
+
+.title {
+  font-size: 50px;
+  font-weight: 700;
+  padding: 20px 0;
+}
+
+/* Nav.js */
+.navWrap {
+  list-style: none;
+  display: flex;
+  justify-content: space-evenly;
+  background-color: rgb(10, 185, 129);
+}
+
+.navItem {
+  display: block;
+  width: 30%;
+  height: 30px;
+  line-height: 30px;
+}
+
+.navItem.active {
+  color: rgb(0, 129, 88);
+  background-color: white;
+}
+
+.navItem:hover {
+  color: rgb(0, 129, 88);
+  background-color: white;
+}
+
+a {
+  text-decoration-line: none;
+  color: white;
+  font-weight: 500;
+}
+
+/* View.js */
+.viewWrap div {
+  margin-left: 10px;  
+}
+
+.addWrap input:focus,
+.viewWrap input:focus {
+  outline: none;
+}
+
+.checkbox {
+  margin-right: 10px;
+  padding: 0;
+}
+
+/* EditForm.js */
+.V {
+  border: none;
+  background-color: white;
+  color: green;
+}
+
+.X {
+  border: none;
+  background-color: white;
+  color: red;
+}
+
+.btn {
+  margin: 0;
+  padding: 0 5px;
+}
+
+.addWrap div,
+.todoWrap div {
+  margin-left: 20px;
+}
