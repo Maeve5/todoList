@@ -11,6 +11,7 @@ function Template() {
     const [todoLists, setTodoLists] = useState([]);
     let content = null;
     
+    // 할일 체크 이벤트
     const onCheck = (id, todo, isCheck) => {
         // const newLists = [...todoLists]
         const newLists = JSON.parse(JSON.stringify(todoLists)); // 깊은 복사
