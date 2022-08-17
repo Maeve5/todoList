@@ -121,24 +121,26 @@ function Template() {
     });
 
     if (mode === 'VIEW') {
-        if (id === 0) {
-            content = <p>ADD를 눌러 할 일을 추가하세요.</p>;
-        } else {
-            content = <View
-                todoLists={todoLists}
-                onCheck={onCheck}
-                />;
-        }
+        // if (id === 0) {
+        //     content = <p>ADD를 눌러 할 일을 추가하세요.</p>;
+        // } else {
+        //     content = <View
+        //         todoLists={todoLists}
+        //         onCheck={onCheck}
+        //         />;
+        // }
+        content = <View todoLists={todoLists} onCheck={onCheck}/>;
     }
     else if (mode === 'ADD') {
         content = <Add todoLists = {todoLists} onAdd = {onAdd}/>
     }
     else if (mode === 'EDIT') {
-        if (id === 0) {
-            content = <p>ADD를 눌러 할 일을 추가하세요.</p>
-        } else {
-            content = <Edit todoLists={todoLists} onEdit={onEdit} onDelete={onDelete}/>
-        }
+        // if (id === 0) {
+        //     content = <p>ADD를 눌러 할 일을 추가하세요.</p>
+        // } else {
+        //     content = <Edit todoLists={todoLists} onEdit={onEdit} onDelete={onDelete}/>
+        // }
+        content = <Edit todoLists={todoLists} onEdit={onEdit} onDelete={onDelete}/>
     }
 
     return (

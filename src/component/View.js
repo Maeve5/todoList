@@ -1,6 +1,6 @@
 import React from 'react';
 
-const View = ({todoLists, onCheck, mode="VIEW"}) => {
+const View = ({todoLists, onCheck}) => {
 
     const _onCheck = (e) => {
         const check = e.target;
@@ -10,20 +10,20 @@ const View = ({todoLists, onCheck, mode="VIEW"}) => {
     const viewLists = todoLists.map((row, idx) => {
         return (
             <div key={idx}>
-                {mode === "VIEW" && <input
+                <input
                     id={row.id}
                     type="checkbox"
                     className='checkbox'
                     onChange={_onCheck}
                     checked={row.isCheck
                         ? true
-                        : false}/>}
+                        : false}/>
                 <input
                     style={{
-                        textDecoration: (row.isCheck && mode==="VIEW")
+                        textDecoration: row.isCheck
                             ? 'line-through'
                             : 'none',
-                        color: (row.isCheck && mode==="VIEW")
+                        color: row.isCheck
                             ? 'gray'
                             : 'black'
                         }}
@@ -38,7 +38,11 @@ const View = ({todoLists, onCheck, mode="VIEW"}) => {
     
     return (
         <article className='viewWrap'>
-            {viewLists}
+            {
+                todoLists.length ?
+                viewLists :
+                <p>ADD를 눌러 할 일을 추가하세요.</p>
+            }
         </article>
     );
 };

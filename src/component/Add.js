@@ -1,5 +1,5 @@
 import React, {useState, useRef} from 'react';
-import View from './View';
+// import View from './View';
 
 function Add({todoLists, onAdd}) {
 
@@ -15,11 +15,23 @@ function Add({todoLists, onAdd}) {
     return (
     <div>
         {/* 기존 할 일 목록 */}
-        <article>
+        {/* <article>
+            {todoLists.map((row, idx) => {
+                return (
+                    <View key={idx} todoLists={row} mode={'ADD'} />
+                    )
+                })}
             <View todoLists={todoLists} mode={'ADD'} />
-        </article>
+        </article> */}
         {/* 추가할 할 일 */}
-        <article className='todoWrap'>
+        <article className='todoWrap viewWrap'>
+            {todoLists.map((row, idx) => {
+                return (
+                    <div>
+                        <input className='todoInput' key={idx} value={row.todo} readOnly />
+                    </div>
+                );
+            })}
             <div>
                 <input
                     type="text"
@@ -36,7 +48,7 @@ function Add({todoLists, onAdd}) {
                     type="button"
                     onClick={() => {
                         onAdd(data);
-                        setData('')
+                        setData('');
                         input.current.focus(); // Ref.current = 선택한 DOM
                     }}
                     value="Add"/>
