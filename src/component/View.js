@@ -4,13 +4,13 @@ const View = ({todoLists, onCheck, mode="VIEW"}) => {
 
     const _onCheck = (e) => {
         const check = e.target;
-        onCheck(check.id, check.checked);
+        onCheck(check.id, check.todo, check.checked);
     }
     
     const viewLists = todoLists.map((row, idx) => {
         return (
             <div key={idx}>
-                {mode ==="VIEW" && <input
+                {mode === "VIEW" && <input
                     id={row.id}
                     type="checkbox"
                     className='checkbox'
@@ -26,7 +26,7 @@ const View = ({todoLists, onCheck, mode="VIEW"}) => {
                         color: (row.isCheck && mode==="VIEW")
                             ? 'gray'
                             : 'black'
-                    }}
+                        }}
                     id={row.id}
                     value={row.todo}
                     className='todoInput'

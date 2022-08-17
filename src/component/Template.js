@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useEffect, useState} from 'react';
 import Nav from './Nav';
 import View from './View';
 import Add from './Add';
@@ -9,6 +9,7 @@ function Template() {
     const [mode, setMode] = useState('VIEW');
     const [id, setId] = useState(0);
     const [todoLists, setTodoLists] = useState([]);
+    // const [content, setContent] = useState(null);
     let content = null;
     
     // 할일 체크 이벤트
@@ -70,7 +71,7 @@ function Template() {
         setTodoLists(newLists);
         alert('수정되었습니다.');
     }
-
+    
     const onDelete = (id) => {
         const newLists = JSON.parse(JSON.stringify(todoLists));
         const changedLists = newLists.filter((row) => {
@@ -80,14 +81,53 @@ function Template() {
         alert('삭제되었습니다.');
     }
 
+    // mode 값이 변할때마다 실행
+    // useEffect(() => {
+    //     switch (mode) {
+    //         case "VIEW":
+    //             setContent(<View
+    //                 todoLists={todoLists}
+    //                 onCheck={onCheck}
+    //             />);
+    //             break;
+    //         case "ADD":
+    //             setContent(
+    //                 <Add
+    //                     todoLists={todoLists}
+    //                     onAdd={onAdd}
+    //                 />);
+    //             break;
+    //         case "EDIT":
+    //             setContent(<Edit
+    //                 todoLists={todoLists}
+    //                 onEdit={onEdit}
+    //                 onDelete={onDelete}
+    //             />);
+    //             break;
+    //         default:
+    //             setContent(null);
+    //             break;
+    //     }
+    // }, [mode]);
+
+    // 최초 렌더링 시에 한번만 실행
+    useEffect(() => {
+
+    }, []);
+
+    // 렌더링 모두 종료 후에 한번만 실행
+    useEffect(() => {
+
+    });
+
     if (mode === 'VIEW') {
         if (id === 0) {
-            content = <p>ADD를 눌러 할 일을 추가하세요.</p>
+            content = <p>ADD를 눌러 할 일을 추가하세요.</p>;
         } else {
             content = <View
                 todoLists={todoLists}
                 onCheck={onCheck}
-                />
+                />;
         }
     }
     else if (mode === 'ADD') {
@@ -113,7 +153,7 @@ function Template() {
                     setMode(title);
                 }}/>
             <section className='formWrap'>
-                {content}
+                {content ? content : <div/>}
             </section>
         </main>
     );
